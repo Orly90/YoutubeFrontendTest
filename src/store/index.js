@@ -20,8 +20,6 @@ export default createStore({
                 const URL = process.env.VUE_APP_API_URL;
                 const CANT = process.env.VUE_APP_CANT_VIDEOS;
 
-                console.log(`${URL}?part=id, snippet&q=${data}&maxResults=${CANT}`);
-
                 const fetchVideos = await fetch(`${URL}?part=id, snippet&q=${data}&maxResults=${CANT}`);
                 const videosList = await fetchVideos.json();
 

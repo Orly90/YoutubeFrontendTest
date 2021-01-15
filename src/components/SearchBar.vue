@@ -5,15 +5,17 @@
                 <input
                     v-model="data"
                     type="search"
-                    class="form-control rounded"
+                    id="form1"
+                    class="form-control"
                     placeholder="Buscar en Youtube"
                     aria-label="Search"
                     aria-describedby="search-addon"
-                    @keyup="fetchData"
+                    v-on:keyup.enter="fetchData"
                 />
-                <span class="input-group-text border-0" id="search-addon">
+
+                <button @click="fetchData" type="button" class="btn btn-primary">
                     <i class="fas fa-search"></i>
-                </span>
+                </button>
             </div>
         </div>
     </div>

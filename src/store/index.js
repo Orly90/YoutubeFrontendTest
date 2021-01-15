@@ -22,7 +22,13 @@ export default createStore({
                 const fetchVideos = await fetch(`${URL}?q=${data}`);
                 const videosList = await fetchVideos.json();
 
-                commit('setYoutubeData', videosList.data.items);
+                if (videosList.status === 200) {
+                    commit('setYoutubeData', videosList.data.items);
+                } else {
+                    //some error from Youtube (ex: quota exceeded)
+                    console.log(videosList);
+                    router.push('/error');
+                }
             } catch (error) {
                 router.push('/error');
                 console.log(error);
